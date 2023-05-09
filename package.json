@@ -25,6 +25,8 @@
     "express-handlebars": "^5.1.0",
     "express-session": "^1.17.1",
     "mysql2": "^2.1.0",
+    "pdfkit": "^0.13.0",
+    "qrcode": "^1.5.3",
     "sequelize": "^6.3.4",
     "validator": "^13.1.1"
   }

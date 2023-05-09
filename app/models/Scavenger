@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs");
 const { Sequelize, DataTypes, ARRAY } = require("sequelize");
 const sequelize = require("../../config/database");
 
-const Scavenger = sequelize.define("scavenger_hunt_game", {
+const Scavengers = sequelize.define("scavenger_hunt_game", {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -17,6 +17,7 @@ const Scavenger = sequelize.define("scavenger_hunt_game", {
     allowNull: true,
   },
   category: DataTypes.JSON,
+  created_by: DataTypes.INTEGER,
 });
 
-module.exports = Scavenger;
+module.exports = Scavengers;

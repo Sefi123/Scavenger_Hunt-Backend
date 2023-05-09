@@ -12,5 +12,7 @@ router.post("/sign-up", AuthController.signUp);
 router.get("/forgot-password", AuthController.forgotPasswordPage);
 router.post("/forgot-password", AuthController.forgotPassword);
 router.post("/create-scavenger", HomeController.createScavenger);
+router.post("/get-scavenger", HomeController.getScavenger);
+router.post("/get-scavenger-card-qr", HomeController.getCardQRCode);
 
 module.exports = router;
