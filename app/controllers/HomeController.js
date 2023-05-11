@@ -107,20 +107,4 @@ exports.getCardQRCode = async (req, res, next) => {
 
   // Finalize PDF document
   doc.end();
-
-  // const pdfFile = await createQRCodePDF("hdbckad2342@wjb");
-  // res.contentType("application/pdf");
-  // res.download(pdfFile, "QR.pdf");
-  // return generateQRCode("423sdcsdvsfvsf")
-  //   .then(async (qrCodeData) => {
-  //     const response = await generatePDF(qrCodeData);
-  //     return response;
-  //   })
-  //   .then((result) => {
-  //     return result;
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //     res.status(404).send({ success: false, data: [] });
-  //   });
 };

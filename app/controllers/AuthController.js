@@ -46,10 +46,7 @@ exports.login = (req, res, next) => {
     validationErrors.push("Please enter a valid email address.");
   if (validator.isEmpty(req.body.inputPassword))
     validationErrors.push("Password cannot be blank.");
-  if (validationErrors.length) {
-    req.flash("error", validationErrors);
-    return res.redirect("/login");
-  }
+
   User.findOne({
     where: {
       email: req.body.inputEmail,
@@ -72,18 +69,28 @@ exports.login = (req, res, next) => {
             }
             req.flash("error", "Invalid email or password.");
             req.flash("oldInput", { email: req.body.inputEmail });
-            return res.redirect("/login");
+            return res
+              .status(200)
+              .send({
+                success: false,
+                data: { error: "Invalid email or password." },
+              });
           })
           .catch((err) => {
             console.log(err);
             req.flash("error", "Sorry! Somethig went wrong.");
             req.flash("oldInput", { email: req.body.inputEmail });
-            return res.redirect("/login");
+            return res
+              .status(200)
+              .send({
+                success: false,
+                data: { error: "Sorry! Somethig went wrong." },
+              });
           });
       } else {
         req.flash("error", "No user found with this email");
         req.flash("oldInput", { email: req.body.inputEmail });
-        return res.redirect("/login");
+        return res.status(200).send({ success: false, data: {} });
       }
     })
     .catch((err) => console.log(err));
