@@ -19,5 +19,7 @@ router.post("/create-player", PlayersController.createPlayer);
 router.post("/add-player-card", PlayersController.addPlayerCards);
 router.post("/get-player", PlayersController.getPlayer);
 router.post("/submit-card-option", PlayersController.onSubmitOption);
+router.post("/create-quiz", PlayersController.createQuiz);
+router.post("/get-quiz", PlayersController.getQuiz);
 
 module.exports = router;
