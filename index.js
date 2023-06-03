@@ -28,7 +28,8 @@ app.use(
   session({
     resave: true,
     saveUninitialized: true,
-    secret: process.env.SESSION_SECRET,
+    // secret: process.env.SESSION_SECRET,
+    secret: "yoursecret",
     cookie: { maxAge: 1209600000 }, // two weeks in milliseconds
     store: new SequelizeStore({
       db: sequelize,
@@ -75,9 +76,9 @@ sequelize
   //.sync({force : true})
   .sync()
   .then(() => {
-    app.listen(process.env.PORT);
+    app.listen(3000);
     //pending set timezone
-    console.log("App listening on port " + process.env.PORT);
+    console.log("App listening on port " + 3000);
   })
   .catch((err) => {
     console.log(err);
