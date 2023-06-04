@@ -1,7 +1,7 @@
 const path = require("path");
 // load dependencies
 const env = require("dotenv");
-const csrf = require("csurf");
+// const csrf = require("csurf");
 const express = require("express");
 const flash = require("express-flash");
 const bodyParser = require("body-parser");
@@ -11,7 +11,7 @@ const expressHbs = require("express-handlebars");
 const SequelizeStore = require("connect-session-sequelize")(session.Store); // initalize sequelize with session store
 
 const app = express();
-const csrfProtection = csrf();
+// const csrfProtection = csrf();
 const router = express.Router();
 
 //Loading Routes
@@ -21,7 +21,7 @@ const errorController = require("./app/controllers/ErrorController");
 
 env.config();
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, "public")));
+// app.use(express.static(path.join(__dirname, "public")));
 
 // required for csurf
 app.use(
@@ -70,7 +70,7 @@ app.use(
 // app.set("views", "views");
 
 app.use(webRoutes);
-app.use(errorController.pageNotFound);
+// app.use(errorController.pageNotFound);
 
 sequelize
   //.sync({force : true})
